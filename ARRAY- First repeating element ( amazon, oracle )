@@ -1,0 +1,37 @@
+#include "bits/stdc++.h"
+using namespace std;
+
+int main(){
+    int n,i;
+    cin >> n;
+    int a[n];
+    for (i=0; i<n; i++){
+        cin >> a[i];
+    }
+
+    int N = n+2;
+    int idx[N];
+    for (i=0; i<N; i++){
+        idx[i] = -1;
+    }
+
+    int min_index = 200 ;
+
+    for (i=0; i<n; i++){
+        if (idx[a[i]] != -1){
+            min_index = min (min_index, idx[a[i]]);
+        }
+        else{
+            idx[a[i]] = i;
+        }
+    }
+
+    if (min_index == 200)
+    {
+        cout << '-1' << endl;
+    }
+    else{
+        cout << min_index+1 << endl;
+    }
+
+}
